@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "de4c59cf-9c4b-40ff-a77a-cb330d09d438",
+		"name": "SpringGraphQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SpringGraphQL get",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": \"query AllArticles {\\n  articles {\\n    id\\n    title\\n    author {\\n      id\\n      username\\n    }\\n  }\\n}\",\n    \"variables\": null,\n    \"operationName\": \"AllArticles\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by param",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"query\": \"query Article($articleId: Int!) {  article(id: $articleId) {   id   title    author {      id     username      bio\\n    }    comments {      id      text      author {        id        username      }    }  }}\",\n    \"variables\": {\n        \"articleId\": 1\n    },\n    \"operationName\": \"Article\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
