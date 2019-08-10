@@ -3,7 +3,6 @@ spring:
     name: SpringGraphQL
   jackson:
     serialization-inclusion: NON_EMPTY
-
 project:
   group: core
   team: content

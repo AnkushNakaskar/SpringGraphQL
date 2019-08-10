@@ -2,9 +2,11 @@ type Query {
     articles: [Article]
     profiles: [Profile]
     comments: [Comment]
-    article(id: Int!): Article
 }
 
+extend type Query {
+    article(id: Int!): Article
+}
 type Mutation {
     createArticle(input: CreateArticleInput!): Article!
     updateArticle(input: UpdateArticleInput!): Article!
